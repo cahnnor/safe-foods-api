@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  web:
+    build: '.'
+    environment:
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - "5000:5000"
+    networks:
+      - api-net
+    volumes:
+      - ./src:/src
+      - ./swagger:/swagger
+  
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - api-net
+
+volumes:
+  my-db:
+
+networks:
+  api-net:
+    name: api-net
+    driver: bridge
+    external: true
+

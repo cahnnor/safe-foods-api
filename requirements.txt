@@ -1,0 +1,8 @@
+flask==3.0.3
+pymysql==1.1.0
+pytest==8.2.1
+pytest-mock==3.14.0
+mypy==1.10.0
+types-PyMySQL==1.1.0.20240524
+types-Flask==1.1.6
+autopep8==2.2.0
