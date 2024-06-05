@@ -1,0 +1,46 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+  
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Create network
+      run: docker network create api-net
+      
+    - name: Install dependencies
+      run: make build
+    
+    - name: Start containers.
+      run: make start
+
+    - name: check containers
+      run: docker ps
+
+    - name: Give db startup time
+      run: sleep 10s
+      shell: bash
+
+    - name: check logs
+      run: docker compose logs
+      
+    - name: Run DB setup
+      run: make setup
+
+    - name: Check format
+      run: make format-check
+
+    - name: Check typing
+      run: make type-check
+
+    - name: Run Unit tests
+      run: make test

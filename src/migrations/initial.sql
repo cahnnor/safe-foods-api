@@ -1,4 +1,4 @@
---- sets up demo data for safe-foods DB.
+-- sets up demo data for safe-foods DB.
 USE food;
 INSERT INTO `restaurants` (id, restaurant_name, proximity, delivery_time) VALUES (1, "Shawarma Palace", 1.5, 15), (2, "Ozzy\'s", 0.0, 0.0);
 INSERT INTO `dishes` (id, dish_name, restaurant_name) VALUES (1, "Chicken Shawarma Wrap", "Shawarma Palace"), (2, "Chicken Shawarma Platter", "Ozzy\'s");
