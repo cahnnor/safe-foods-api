@@ -12,8 +12,8 @@ build-full:
 up:
 	docker-compose -f $(DOCKER_COMPOSE) up -d $(c)
 start:
-	docker-compose -f $(DOCKER_COMPOSE) build $(c)
-	docker-compose -f $(DOCKER_COMPOSE) up -d $(c)
+	docker compose -f $(DOCKER_COMPOSE) build $(c)
+	docker compose -f $(DOCKER_COMPOSE) up -d $(c)
 down:
 	docker-compose -f $(DOCKER_COMPOSE) down $(c)
 stop:
