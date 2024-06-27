@@ -28,7 +28,7 @@ setup:
 	mysql -h localhost -uroot -p${MYSQL_ROOT_PASSWORD} --protocol=tcp < src/migrations/tables.sql
 	mysql -h localhost -uroot -p${MYSQL_ROOT_PASSWORD} --protocol=tcp < src/migrations/initial.sql
 test:
-	docker exec -w /src/tests safe-foods-api_web_1 pytest -s
+	docker exec -w /src/tests safe-foods-api-web-1 pytest -s
 type-check:
 	docker exec -w /src safe-foods-api-web-1 mypy .
 format-check:
