@@ -30,8 +30,8 @@ setup:
 test:
 	docker exec -w /src/tests safe-foods-api_web_1 pytest -s
 type-check:
-	docker exec -w /src safe-foods-api_web_1 mypy .
+	docker exec -w /src safe-foods-api-web-1 mypy .
 format-check:
-	docker exec -w /src safe-foods-api_web_1 autopep8 -r . --diff
+	docker exec -w /src safe-foods-api-web-1 autopep8 -r . --diff
 format-fix:
 	autopep8 -r . --in-place
